@@ -120,14 +120,11 @@ function buy(i){
  document.getElementById("payText").textContent=`Pay ${a.price} for ${a.name} (Lifetime).`;
  document.getElementById("payBg").style.display="flex";
 }
+function showQR(){closeModal("payBg");document.getElementById("qrBg").style.display="flex";}
 function submitTxn(){
  const t=document.getElementById("txn").value.trim();
- if(!t){
-   alert("Please enter the UPI transaction/reference ID.");
-   return;
- }
- alert("✅ Reference ID received: "+t+"\\n\\n⚠️ Payment verification is pending. Access will be provided only after payment is manually verified.");
-  } the payment manually before granting access.");
+ if(!t){alert("Please enter the UPI transaction/reference ID.");return;}
+ alert("Reference submitted: "+t+"\\n\\nDemo only. Verify the payment manually before granting access.");
 }
 function closeModal(id){document.getElementById(id).style.display="none";}
 </script>
