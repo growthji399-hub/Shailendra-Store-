@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Shailendra Store</title>
+<style>
+*{box-sizing:border-box;font-family:Arial,sans-serif}
+body{margin:0;background:linear-gradient(135deg,#eef2ff,#fff7ed,#ecfeff);color:#111827}
+header{background:linear-gradient(135deg,#4f46e5,#7c3aed,#ec4899);color:#fff;padding:25px 18px;border-radius:0 0 28px 28px;box-shadow:0 8px 25px #0003}
+.logo{font-size:28px;font-weight:bold}.tagline{margin-top:6px;opacity:.9;font-size:14px}
+.search{margin-top:20px;width:100%;padding:14px;border:0;border-radius:14px;font-size:15px}
+.store-offer{margin-top:14px;padding:13px 14px;border-radius:15px;background:linear-gradient(135deg,#fff7ed,#ecfdf5);color:#166534;font-size:13px;line-height:1.55;box-shadow:0 5px 15px #0002;border:1px solid #bbf7d0}
+.benefits{margin-top:9px;padding:8px 10px;border-radius:11px;background:#f0fdf4;color:#166534;font-size:12px;font-weight:800;line-height:1.5}
+.container{padding:22px 16px;max-width:900px;margin:auto}
+.section-title{font-size:22px;margin:12px 0 16px;font-weight:bold}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.card{background:#fff;border-radius:20px;padding:17px;box-shadow:0 7px 20px #0002;position:relative}
+.icon{width:60px;height:60px;border-radius:17px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;font-weight:bold;margin-bottom:12px;overflow:hidden;background:#fff}.icon img{width:100%;height:100%;object-fit:contain;display:block;background:#fff}.store-logo{width:52px;height:52px;border-radius:16px;object-fit:cover;vertical-align:middle;margin-right:10px;box-shadow:0 4px 14px #0004}.logo{display:flex;align-items:center}
+.pw{background:linear-gradient(135deg,#ef4444,#f97316)}.rwa{background:linear-gradient(135deg,#2563eb,#06b6d4)}
+.vg{background:linear-gradient(135deg,#16a34a,#22c55e)}.nt{background:linear-gradient(135deg,#9333ea,#ec4899)}
+h3{font-size:18px;margin:0 0 6px}.desc{font-size:13px;color:#6b7280;min-height:34px}
+.price{font-size:17px;font-weight:bold;color:#16a34a;margin-top:6px}
+.badge{position:absolute;top:12px;right:12px;background:#dcfce7;color:#15803d;font-size:10px;padding:5px 8px;border-radius:20px;font-weight:bold}
+.btn{margin-top:14px;width:100%;padding:11px;border:0;border-radius:12px;background:#4f46e5;color:#fff;font-weight:bold;font-size:15px}
+.locked{background:#9ca3af}
+.hidden{display:none}.upcoming-info{font-size:12px;color:#4f46e5;font-weight:700;line-height:1.5;margin-top:8px}
+.modal{position:fixed;inset:0;background:#0009;display:none;align-items:center;justify-content:center;padding:18px;z-index:10}
+.modal.show{display:flex}
+.box{background:#fff;border-radius:24px;padding:22px;width:min(430px,100%);text-align:center;max-height:90vh;overflow:auto}
+.box h2{margin:0 0 8px}.box p{color:#6b7280}
+.qr{width:260px;height:260px;max-width:85%;object-fit:contain;display:block;margin:15px auto;border-radius:10px;background:#fff;padding:6px}
+.input{width:100%;padding:13px;border:1px solid #d1d5db;border-radius:12px;font-size:16px;margin-top:10px}
+.success{color:#15803d;font-weight:bold}.error{color:#dc2626;font-weight:bold}
+.close{background:#e5e7eb;color:#111;margin-top:8px}
+footer{text-align:center;padding:25px;color:#6b7280;font-size:13px}
+@media(max-width:500px){.grid{grid-template-columns:1fr 1fr}.card{padding:14px}}
+
+.rating{margin:8px 0 0;font-size:14px;font-weight:800;color:#f59e0b;letter-spacing:.2px}
+.rating span{color:#64748b;font-weight:600;font-size:12px;margin-left:3px}
+.upcoming-badge{display:inline-block;margin-top:8px;padding:4px 9px;border-radius:999px;background:#fff7ed;color:#ea580c;font-size:11px;font-weight:800}
+.contact-box{margin:28px 0 8px;padding:18px;border-radius:18px;background:linear-gradient(135deg,#eef2ff,#f8fafc);text-align:center;border:1px solid #e2e8f0}
+.contact-box h3{margin:0 0 6px;font-size:18px}.contact-box p{margin:4px 0;color:#475569}.tg-link{font-weight:900;color:#229ED9;text-decoration:none;font-size:16px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><div class="store-logo" style="display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px;">SP</div> <span>Shailendra Store</span></div>
+  <div class="tagline">Your Education App Store 🚀</div>
+  <input class="search" id="search" placeholder="Search app..." oninput="searchApps()">
+  <div class="store-offer">
+    🎁 <b>Special Offer</b><br>
+    ऊपर दिए गए सभी apps में <b>All Batches Unlock</b> मिलेंगे और <b>Lifetime Access</b> मिलेगा
+  </div>
+</header>
+
+<div class="container">
+  <div class="section-title">📱 Apps in Store</div>
+  <div class="grid" id="grid">
+    <div class="card app" data-name="PW">
+      <span class="badge">₹60</span>
+      <div class="icon pw"><img src="https://play-lh.googleusercontent.com/2PisL-eEF56tavzVU7P5i-dmeZUX7SFVWMWhhSHFgiz1rEXCtImtMMReufn-OghK341U9NLhIjaCQfdK6A-bpRo=w240-h480" alt="PW"></div>
+      <h3>PW</h3>
+      <div class="desc">Education & Exam Preparation</div>
+      <div class="rating">★★★★☆ <span>4.0/5</span></div>
+      <div class="price">₹60</div>
+      <div class="benefits">🔓 All batches unlocked milenge<br>♾️ Life time access milega</div>
+      <button class="btn" onclick="openPayment('PW')">🔒 Buy ₹60</button>
+    </div>
+
+    <div class="card app" data-name="RWA">
+      <span class="badge">₹60</span>
+      <div class="icon rwa"><img src="https://play-lh.googleusercontent.com/gWz-XO7Lb_kWL9ctOCRz5xiu9agActAhDgDBZZ4QQK372HDod6fPqV_WfcoYaDZkRA5x0chY1bHWdQukBRAM=w240-h480" alt="RWA"></div>
+      <h3>RWA</h3>
+      <div class="desc">Education & Learning App</div>
+      <div class="rating">★★★★☆ <span>4.0/5</span></div>
+      <div class="price">₹60</div>
+      <div class="benefits">🔓 All batches unlocked milenge<br>♾️ Life time access milega</div>
+      <button class="btn" onclick="openPayment('RWA')">🔒 Buy ₹60</button>
+    </div>
+
+    <div class="card app" data-name="Vidygram">
+      <span class="badge">₹60</span>
+      <div class="icon vg"><img src="https://play-lh.googleusercontent.com/tUbe72LRIGan0h69Xx7pnKyddjkA5qi8gyEZSbIK58uE5B92o-w2_0BJYCE7GSiyc5256gR1sUU5p1mY_nsaQw=w240-h480" alt="Vidygram"></div>
+      <h3>Vidygram</h3>
+      <div class="desc">Smart Learning Platform</div>
+      <div class="rating">★★★★☆ <span>4.0/5</span></div>
+      <div class="price">₹60</div>
+      <div class="benefits">🔓 All batches unlocked milenge<br>♾️ Life time access milega</div>
+      <button class="btn" onclick="openPayment('Vidygram')">🔒 Buy ₹60</button>
+    </div>
+
+    <div class="card app" data-name="Next Topper">
+      <span class="badge">₹60</span>
+      <div class="icon nt"><img src="https://play-lh.googleusercontent.com/QXszaiUECWDTaY9IMT-Ligsh8xcRRjyTXefomzW98SM5aftooi0KOv_7O0uzem8cYhyFWBiGpIrfC_zDddbz2g=w240-h480" alt="Next Topper"></div>
+      <h3>Next Topper</h3>
+      <div class="desc">Learning & Preparation</div>
+      <div class="rating">★★★★☆ <span>4.0/5</span></div>
+      <div class="price">₹60</div>
+      <div class="benefits">🔓 All batches unlocked milenge<br>♾️ Life time access milega</div>
+      <button class="btn" onclick="openPayment('Next Topper')">🔒 Buy ₹60</button>
+    </div>
+
+    <div class="card app" data-name="Selection Way">
+      <span class="badge">₹60</span>
+      <div class="icon "><img src="https://lh3.googleusercontent.com/hhG3cC6Q4mrs0EXMV84DbKmkU0gfuscvM_-2sEuCFJvU_LagiH8jZY5sgGIdQzwTveScDKlPapJIhfdeEzSNIGQxFjbaCJO2NKe0" alt="Selection Way"></div>
+      <h3>Selection Way</h3>
+      <div class="desc">Learning & Preparation</div>
+      
+      <div class="price">₹60</div>
+      <div class="benefits">🔓 All batches unlocked milenge<br>♾️ Life time access milega</div>
+      <button class="btn" onclick="openPayment('Selection Way')">🔒 Buy ₹60</button>
+    </div>
+
+    <div class="card app" data-name="Careerwill">
+      <span class="badge">₹60</span>
+      <div class="icon "><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f8/2a/8e/f82a8e9c-190c-6b33-3a63-f6a2e9b5ea48/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/1200x630wa.jpg" alt="Careerwill"></div>
+      <h3>Careerwill</h3>
+      <div class="desc">Learning & Preparation</div>
+      
+      <div class="price">₹60</div>
+      <div class="benefits">🔓 All batches unlocked milenge<br>♾️ Life time access milega</div>
+      <button class="btn" onclick="openPayment('Careerwill')">🔒 Buy ₹60</button>
+    </div>
+
+    <div class="card app" data-name="Unacademy">
+      <span class="badge">₹60</span>
+      <div class="icon "><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fd/ec/a1/fdeca182-11ac-0aba-cd5e-7120547f4f0a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Unacademy"></div>
+      <h3>Unacademy</h3>
+      <div class="desc">Learning & Preparation</div>
+      
+      <div class="price">₹60</div>
+      <div class="benefits">🔓 All batches unlocked milenge<br>♾️ Life time access milega</div>
+      <button class="btn" onclick="openPayment('Unacademy')">🔒 Buy ₹60</button>
+    </div>
+
+  </div>
+
+<div class="section-title" style="margin-top:32px">🚀 Upcoming Apps</div>
+  <div class="grid">
+    <div class="card"><div class="icon"><img src="https://cdn6.aptoide.com/imgs/d/d/2/dd22cae01b7f271de45c1243cce0ddf9_icon.png" alt="Adda 247"></div><h3>Adda 247</h3><div class="desc">Coming soon</div></div>
+    <div class="card"><div class="icon"><img src="https://img.utdstc.com/icon/975/91f/97591f6a98980714588959fa0f8eb54aeef06fc957ca769f17baa120dbac07c9%3A600" alt="Testbook"></div><h3>Testbook</h3><div class="desc">Coming soon</div></div>
+    <div class="card"><div class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/b5/a1/0a/b5a10aa7-03a0-c8be-51d6-0d1576e3be18/AppIcon-1x_U007epad-0-8-0-85-220.png/1200x630wa.png" alt="KGS"></div><h3>KGS</h3><div class="desc">Coming soon</div></div>
+    <div class="card"><div class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/2a/bc/fe/2abcfef5-b7a0-1fee-3f20-ffd6e2aba3c4/AppIcon-0-0-1x_U007emarketing-0-0-0-5-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/1200x630wa.png" alt="Vedantu"></div><h3>Vedantu</h3><div class="desc">Coming soon</div></div>
+    <div class="card"><div class="icon"><img src="https://d2n7zouke881gi.cloudfront.net/randomUploads/logo.png" alt="Vidyakul"></div><h3>Vidyakul</h3><div class="desc">Coming soon</div></div>
+    <div class="card"><div class="icon"><img src="https://fastly.mwm-storage.mwmcdn.com/raw_files/56f1217f-47ed-45b7-9ed2-fae38580b070?format=webp&amp;height=640" alt="Target with Ankit"></div><h3>Target with Ankit</h3><div class="desc">Coming soon</div></div>
+  </div>
+</div>
+
+<footer>© 2026 Shailendra Store ❤️<br><span style="font-size:14px">Any problem? Telegram पर message करो: <a href="https://t.me/SadObito09" target="_blank" rel="noopener">@SadObito09</a></span></footer>
+
+<div class="modal" id="payModal">
+  <div class="box">
+    <h2 id="payTitle">Pay ₹60</h2>
+    <p>नीचे दिए QR को scan करके ठीक ₹60 pay करें।</p>
+    <img class="qr" src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gIoSUNDX1BST0ZJTEUAAQEAAAIYAAAAAAQwAABtbnRyUkdCIFhZWiAAAAAAAAAAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAAHRyWFlaAAABZAAAABRnWFlaAAABeAAAABRiWFlaAAABjAAAABRyVFJDAAABoAAAAChnVFJDAAABoAAAAChiVFJDAAABoAAAACh3dHB0AAAByAAAABRjcHJ0AAAB3AAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAFgAAAAcAHMAUgBHAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhZWiAAAAAAAABvogAAOPUAAAOQWFlaIAAAAAAAAGKZAAC3hQAAGNpYWVogAAAAAAAAJKAAAA+EAAC2z3BhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABYWVogAAAAAAAA9tYAAQAAAADTLW1sdWMAAAAAAAAAAQAAAAxlblVTAAAAIAAAABwARwBvAG8AZwBsAGUAIABJAG4AYwAuACAAMgAwADEANv/bAEMAAwICAwICAwMDAwQDAwQFCAUFBAQFCgcHBggMCgwMCwoLCw0OEhANDhEOCwsQFhARExQVFRUMDxcYFhQYEhQVFP/bAEMBAwQEBQQFCQUFCRQNCw0UFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFP/AABEIBgAEUgMBIgACEQEDEQH/xAAeAAEAAgIDAQEBAAAAAAAAAAAACAkFBgQHCgMBAv/EAGQQAAECBAIDBwwPBgMGBAQDCQABAgMEBQYHEQgJEhkhMVV1lNETFjc4QVFhcXSTsbIUFRciMjQ2UlRWc4GRs+E1U3KhwdIjlbQkM0JigsJDRHaSGCWi8Dljg7XDJkXT8SdGV//EAB0BAQADAAMBAQEAAAAAAAAAAAABAgMFBgcECAn/xAA2EQEAAgIBAwIDBQcEAgMAAAAAAQIDETEEBSESQQZRYRMicYGhBxUyQpHB8COx0eEU8WJygv/aAAwDAQACEQMRAD8As7AB9bIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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
